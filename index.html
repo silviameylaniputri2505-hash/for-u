@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Untuk Wanda </title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff7fb;
+            color: #38465a;
+            overflow-x: hidden;
+        }
+
+        /* ================= BACKGROUND ================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+
+            background:
+                radial-gradient(
+                    circle at 10% 15%,
+                    #ffd4e6,
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 90% 30%,
+                    #cce7ff,
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 50% 100%,
+                    #eadcff,
+                    transparent 25%
+                ),
+
+                #fff7fb;
+        }
+
+
+        /* ================= BUBBLE ================= */
+
+        .bubble {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.35;
+            z-index: -1;
+
+            animation:
+                float 7s infinite ease-in-out;
+        }
+
+        .bubble.one {
+            width: 90px;
+            height: 90px;
+
+            background: #ffafd0;
+
+            top: 12%;
+            left: 5%;
+        }
+
+        .bubble.two {
+            width: 130px;
+            height: 130px;
+
+            background: #a8d6ff;
+
+            right: 5%;
+            top: 50%;
+
+            animation-delay: 2s;
+        }
+
+        .bubble.three {
+            width: 70px;
+            height: 70px;
+
+            background: #d7b5ff;
+
+            left: 10%;
+            bottom: 10%;
+
+            animation-delay: 4s;
+        }
+
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+
+        }
+
+
+        /* ================= OPENING ================= */
+
+        .opening {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+
+        .opening-box {
+
+            width: 100%;
+
+            max-width: 620px;
+
+            background:
+                rgba(255,255,255,0.88);
+
+            border:
+                1px solid #ffd0e2;
+
+            border-radius: 30px;
+
+            padding: 45px 30px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(210,100,150,0.16);
+        }
+
+
+        .flower {
+
+            font-size: 65px;
+
+            margin-bottom: 15px;
+
+            animation:
+                sway 3s infinite ease-in-out;
+        }
+
+
+        @keyframes sway {
+
+            0%,100% {
+                transform: rotate(-5deg);
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
+
+        }
+
+
+        .opening small {
+
+            color: #e45d98;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .opening h1 {
+
+            font-size: 45px;
+
+            margin: 18px 0;
+        }
+
+
+        .pink {
+            color: #e75d98;
+        }
+
+
+        .blue {
+            color: #4b9ee5;
+        }
+
+
+        .opening p {
+
+            color: #758296;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        button {
+
+            border: none;
+
+            padding: 14px 28px;
+
+            border-radius: 30px;
+
+            color: white;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ed6ba5,
+                    #579fe5
+                );
+
+            box-shadow:
+                0 8px 20px
+                rgba(100,130,200,0.2);
+
+            transition: 0.3s;
+        }
+
+
+        button:hover {
+
+            transform:
+                translateY(-3px)
+                scale(1.03);
+        }
+
+
+        /* ================= CONTENT ================= */
+
+        #content {
+
+            display: none;
+
+            padding:
+                70px 0
+                40px;
+        }
+
+
+        .container {
+
+            width: 90%;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        .header {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        .header .emoji {
+
+            font-size: 55px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .header h2 {
+
+            font-size: 32px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .header p {
+
+            color: #758296;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= CARD ================= */
+
+        .card {
+
+            background:
+                rgba(255,255,255,0.92);
+
+            border:
+                1px solid #f1d9e5;
+
+            border-radius: 23px;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 12px 35px
+                rgba(100,100,150,0.07);
+        }
+
+
+        .card h3 {
+
+            font-size: 22px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .card p {
+
+            color: #647184;
+
+            line-height: 1.9;
+
+            margin-bottom: 15px;
+        }
+
+
+        .pink-title {
+
+            color: #df578f;
+        }
+
+
+        .blue-title {
+
+            color: #4b96d8;
+        }
+
+
+        /* ================= SPECIAL ================= */
+
+        .special {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe0ed,
+                    #e0f0ff
+                );
+
+            border: none;
+        }
+
+
+        .special h3 {
+
+            color: #df578f;
+        }
+
+
+        /* ================= PESAN DARI FARREL ================= */
+
+        .farrel {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e2efff,
+                    #ffe1ed
+                );
+
+            text-align: center;
+
+            border: none;
+        }
+
+
+        .farrel h3 {
+
+            color: #4c8fcf;
+        }
+
+
+        .signature {
+
+            margin-top: 20px;
+
+            color: #df578f;
+
+            font-weight: bold;
+        }
+
+
+        /* ================= PENUTUP ================= */
+
+        .ending {
+
+            text-align: center;
+
+            padding: 60px 10px;
+        }
+
+
+        .ending .flower-end {
+
+            font-size: 55px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .ending h2 {
+
+            font-size: 31px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .ending p {
+
+            color: #758296;
+
+            line-height: 1.8;
+        }
+
+
+        .quote {
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin: 25px 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #e55b96,
+                    #4b98dd
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color:
+                transparent;
+        }
+
+
+        #lastMessage {
+
+            display: none;
+
+            margin-top: 25px;
+
+            color: #df578f;
+
+            font-weight: bold;
+
+            line-height: 1.9;
+        }
+
+
+        /* ================= HEART ================= */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -30px;
+
+            font-size: 20px;
+
+            pointer-events: none;
+
+            z-index: 10;
+
+            animation:
+                naik 5s linear forwards;
+        }
+
+
+        @keyframes naik {
+
+            from {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            to {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 600px) {
+
+            .opening h1 {
+
+                font-size: 35px;
+            }
+
+            .opening-box {
+
+                padding:
+                    40px 22px;
+            }
+
+            .header h2 {
+
+                font-size: 28px;
+            }
+
+            .card {
+
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- BACKGROUND -->
+
+    <div class="background"></div>
+
+    <div class="bubble one"></div>
+
+    <div class="bubble two"></div>
+
+    <div class="bubble three"></div>
+
+
+
+    <!-- ================= OPENING ================= -->
+
+    <section
+        class="opening"
+        id="opening">
+
+        <div class="opening-box">
+
+            <div class="flower">
+                🌷
+            </div>
+
+
+            <small>
+                A LITTLE MESSAGE FOR
+            </small>
+
+
+            <h1>
+
+                Wanda
+                <span class="pink">💗</span>
+
+            </h1>
+
+
+            <p>
+
+                Aku bikin sesuatu kecil buat kamu.
+
+                <br>
+
+                Buka kalau kamu sudah siap
+                menerima sedikit semangat
+                untuk hari ini.
+
+            </p>
+
+
+            <button onclick="openWebsite()">
+
+                Buka Pesannya ✨
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= ISI ================= -->
+
+    <section id="content">
+
+        <div class="container">
+
+
+            <!-- HEADER -->
+
+            <div class="header">
+
+                <div class="emoji">
+                    🌸
+                </div>
+
+
+                <h2>
+
+                    
+                    <span class="pink">
+                        FOR U Wanda
+                    </span>
+                    💗
+
+                </h2>
+
+
+                
+
+                </p>
+
+            </div>
+
+
+
+            <!-- SEMANGAT KERJA -->
+
+            <div class="card special">
+
+                <h3>
+
+                    💪 Semangat Kerja Hari Ini
+
+                </h3>
+
+
+                <p>
+
+                    maybe hari ini kamu kerjanya cape,
+                    semangat terus inces wkwk,
+                    tapi yang perlu kamu tau bahwa setiap langkah kamu
+                    hari ini adalah bentuk perjuangan yang sangat luar biasa,
+                    anjazz kelas kelaz gx? kelaz king🤟🏼
+
+
+
+                    
+                    
+
+                </p>
+
+
+                <p>
+
+                    oh ya.. kalau kamu cape jangan terlalu 
+                    dipkasain ya, jangan lupa untuk selalu
+                    jaga kesehatan nduy
+
+                </p>
+
+
+                <p>
+
+                    
+
+                </p>
+
+
+                <p>
+
+                    
+
+                </p>
+
+
+                <p>
+
+
+                </p>
+
+            </div>
+
+
+
+            <!-- KALAU CAPEK -->
+
+            <div class="card">
+
+                <h3 class="blue-title">
+
+                                       "PESAN FOR U"
+
+                </h3>
+
+
+                <p>
+
+                    semangat terus jangan pernah ngerasa sendiri, 
+                    kamu bole jadi manusia yang kuat, tapi sama aku,
+                    kamu boleh nunjukin titik  lemah kamu☺️
+
+
+                </p>
+
+
+                <p>
+
+                    mungkin aku bukan siapa siapa kamu, 
+                    aku juga cuman orang asing yang datang di hidup kamu
+                    tapi percayalah aku datang bukan untuk mengagangu kehidupan
+                    kamu, aku cuman ingin menjadi seseorang yang memberikan sedikit
+                    semangat dan ingin membuat kamu tau kalau didunia ini masih ada 
+                    orang yang peduli sama kamu..
+
+                </p>
+
+
+                <p>
+
+                    kalau gaada orang yang bilang bangga sama kamu
+                    percayalah aku bakal selalu jadi manusia pertama
+                    yang akan selalu proud of you🤍
+            
+
+
+                <p>
+
+                    ingat,
+
+                    <strong>
+                        I'M SO PROUD OF YOU WANDUY
+                    </strong>
+
+                </p>
+
+
+                <p>
+
+                    
+                </p>
+
+
+                <p>
+
+                    
+                </p>
+
+            </div>
+
+
+
+            <!-- PESAN DARI FARREL -->
+
+            <div class="card farrel">
+
+                <h3>
+
+                    💌 Pesan dari LIPUY
+
+                </h3>
+
+
+                <p>
+
+                    aku cuma mau bilang:
+
+                    <br><br>
+
+                    <strong>
+                        APAPUN ITU HARUS TERUS SEMANGAT YA!!
+                    </strong>
+
+                
+
+
+                
+
+
+                <div class="signature">
+
+                    — alivikasep 💗
+
+                </div>
+
+            </div>
+
+
+
+            
+
+
+    
+
+
+                <button onclick="showFinal()">
+
+                    Last 💙
+
+                </button>
+
+
+                <p id="lastMessage">
+
+                    jangan lupa untuk selalu bahagia nduy
+
+                    <br><br>
+
+                    jangan lupa makan,
+                    jangan lupa istirahat,
+                    dan jangan lupa sama aku eh BERCYANDA
+
+
+                    <br><br>
+
+                    when kita main lagi?🙌🏽
+
+                    <br><br>
+
+                    
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        function openWebsite() {
+
+            document.getElementById("opening")
+                .style.display = "none";
+
+
+            document.getElementById("content")
+                .style.display = "block";
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+
+        function showFinal() {
+
+            document.getElementById("lastMessage")
+                .style.display = "block";
+
+
+            startHearts();
+
+        }
+
+
+
+        function startHearts() {
+
+            setInterval(function() {
+
+                const heart =
+                    document.createElement("div");
+
+
+                const emojis = [
+                    "💗",
+                    "💙",
+                    "✨",
+                    "🌸",
+                    "🌷"
+                ];
+
+
+                heart.className = "heart";
+
+
+                heart.innerHTML =
+                    emojis[
+                        Math.floor(
+                            Math.random()
+                            * emojis.length
+                        )
+                    ];
+
+
+                heart.style.left =
+                    Math.random() * 100 + "%";
+
+
+                heart.style.animationDuration =
+                    (3 + Math.random() * 3)
+                    + "s";
+
+
+                document.body.appendChild(heart);
+
+
+                setTimeout(function() {
+
+                    heart.remove();
+
+                }, 6000);
+
+
+            }, 800);
+
+        }
+
+    </script>
+
+
+</body>
+</html>
